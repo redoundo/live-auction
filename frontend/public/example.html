@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Live Auction</title>
+		<style>
+			@font-face {
+				font-family: "Pretendard-Regular";
+				src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+					format("woff");
+				font-weight: 400;
+				font-style: normal;
+			}
+			button {
+				background-color: transparent;
+				border: 0px solid transparent;
+			}
+			.navbar {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				height: 82px;
+				min-width: 250px;
+				flex-basis: 60%;
+			}
+			body {
+				min-height: 100vh;
+				min-width: 100vw;
+				line-height: 1;
+				position: relative;
+				max-width: 1000px;
+				background-color: #f8f8f8;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+			}
+			.intro {
+				height: 100px;
+				display: flex;
+				flex-direction: row;
+				min-width: 500px;
+				align-items: center;
+			}
+			.btn {
+				font-family: "Pretendard-Regular";
+				margin-left: 10px;
+				font-weight: 600;
+				font-size: 18px;
+				line-height: 1.17;
+				height: 100%;
+				color: #000;
+				display: flex;
+				align-items: center;
+			}
+			.logo {
+				height: 50px;
+				width: 100px;
+				flex-basis: 20%;
+			}
+			.intro-span {
+				flex-basis: 50%;
+			}
+			#root {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			.header {
+				width: 100%;
+				height: 100px;
+				background-color: #fff;
+				top: 0;
+				left: 0;
+				z-index: 99;
+				display: flex;
+				flex-wrap: nowrap;
+				align-items: center;
+				transition: all 0.2s;
+			}
+			.header .main-header {
+				position: relative;
+				background-color: #f8f8f8;
+				flex-basis: 20%;
+			}
+			.container {
+				width: 100%;
+				max-width: 1500px;
+				padding: 0 50px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.wrap {
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				position: relative;
+				display: flex;
+				min-width: 606px;
+				flex-wrap: nowrap;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.navbar-span {
+				position: relative;
+				margin-right: 48px;
+			}
+			.else {
+				flex-basis: 20%;
+			}
+			.main {
+				padding-top: calc(100vw * (40 / 1500));
+				padding-bottom: calc(100vw * (40 / 1500));
+				width: 100%;
+				flex-basis: 70%;
+				z-index: 99;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				transition: all 0.2s;
+				background-color: #f8f8f8;
+				justify-content: center;
+			}
+			.chatRoomList {
+				display: flex;
+				flex-direction: row;
+				width: 80%;
+				flex-wrap: wrap;
+				gap: 25px;
+			}
+			.chatRooms {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				min-width: 300px;
+				min-height: 100px;
+				background: #ffffff;
+				box-shadow: 2px 2px 14px 5px rgba(90, 90, 90, 0.15);
+				border-radius: 20px;
+			}
+			.streaming-video-img {
+				max-width: 300px;
+			}
+			.chatRoomInfo {
+				font-family: "Pretendard-Regular";
+				font-weight: 500;
+				width: 100%;
+				word-wrap: break-word;
+				word-break: break-all;
+				margin: 5px;
+				margin-bottom: 10px;
+				padding-left: 10px;
+			}
+			.speaker-img {
+				width: 30px;
+				height: 30px;
+				border-radius: 30px;
+				background-color: #000;
+			}
+			.info-detail {
+				line-height: 1;
+				flex-grow: 1;
+				font-size: 15px;
+				font-weight: 900;
+			}
+			.speaker-name {
+				font-size: 14px;
+				padding-top: 8px;
+				font-weight: 400;
+			}
+			.speaker-info {
+				display: flex;
+				flex-direction: row;
+				gap: 18px;
+				padding: 10px;
+				padding-left: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<div class="header main-header">
+				<div class="container">
+					<div class="wrap">
+						<button class="logo">로고</button>
+						<div class="navbar">
+							<span class="navbar-span">
+								<button class="btn">채팅방</button>
+							</span>
+							<span class="navbar-span">
+								<button class="btn">방송하기</button>
+							</span>
+							<span class="navbar-span">
+								<button class="btn">MY</button>
+							</span>
+						</div>
+						<div class="else"></div>
+					</div>
+				</div>
+			</div>
+			<div class="main">
+				<div class="chatRoomList">
+					<div class="chatRooms">
+						<div class="streaming-video">
+							<a>
+								<img class="streaming-video-img" src="../public/8BZ1706581862318-850.jpg" />
+							</a>
+						</div>
+						<div class="chatRoomInfo">
+							<div class="speaker-info">
+								<div class="speaker-img"></div>
+								<div class="info-detail">
+									<a>
+										프로루린
+										<div class="speaker-name">팡팡팡!!</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chatRooms">
+						<div class="streaming-video">
+							<img class="streaming-video-img" src="../public/8BZ1706581862318-850.jpg" />
+						</div>
+						<div class="chatRoomInfo">
+							<div class="speaker-info">
+								<div class="speaker-img"></div>
+								<div class="info-detail">
+									프로루린
+									<div class="speaker-name">팡팡팡!!</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chatRooms">
+						<div class="streaming-video">
+							<img class="streaming-video-img" src="../public/8BZ1706581862318-850.jpg" />
+						</div>
+						<div class="chatRoomInfo">
+							<div class="speaker-info">
+								<div class="speaker-img"></div>
+								<div class="info-detail">
+									프로루린
+									<div class="speaker-name">팡팡팡!!</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chatRooms">
+						<div class="streaming-video">
+							<img class="streaming-video-img" src="../public/8BZ1706581862318-850.jpg" />
+						</div>
+						<div class="chatRoomInfo">
+							<div class="speaker-info">
+								<div class="speaker-img"></div>
+								<div class="info-detail">
+									프로루린
+									<div class="speaker-name">팡팡팡!!</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="chatRooms">
+						<div class="streaming-video">
+							<img class="streaming-video-img" src="../public/8BZ1706581862318-850.jpg" />
+						</div>
+						<div class="chatRoomInfo">
+							<div class="speaker-info">
+								<div class="speaker-img"></div>
+								<div class="info-detail">
+									프로루린
+									<div class="speaker-name">팡팡팡!!</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
